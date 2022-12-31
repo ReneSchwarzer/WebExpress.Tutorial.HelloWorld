@@ -1,0 +1,16 @@
+﻿# Deutsch
+plugin.name=HelloWorld
+plugin.description=
+
+app.name=HelloWorld
+app.label=Hello Welt
+app.description=Tutorial einer einfachen Hallo Welt WebExpress-Anwendudng.
+app.license.label=Lizenz MIT 
+app.license.uri=https://github.com/ReneSchwarzer/WebExpress.Tutorial.HelloWorld/blob/main/LICENSE
+app.version.label={0} Version {1} erstellt mit {2} Version {3}.
+
+module.name=HelloWorld
+module.description=Modul der Anwendung HelloWorld.
+
+homepage.label=Startseite
+homepage.text=Hallo Welt!
