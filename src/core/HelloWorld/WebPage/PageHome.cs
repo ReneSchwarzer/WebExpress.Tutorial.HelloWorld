@@ -1,19 +1,21 @@
 ﻿using WebExpress.Internationalization;
 using WebExpress.UI.WebControl;
+using WebExpress.UI.WebPage;
 using WebExpress.WebApp.WebPage;
 using WebExpress.WebAttribute;
+using WebExpress.WebPage;
 using WebExpress.WebResource;
 
 namespace HelloWorld.WebPage
 {
     [Id("Log")]
     [Title("helloworld:homepage.label")]
-    [Segment("log", "helloworld:homepage.label")]
-    [Path("/")]
+    [Segment("", "helloworld:homepage.label")]
+    [Path("")]
     [Module("HelloWorld")]
     [Context("general")]
     [Context("homepage")]
-    public sealed class PageHome : PageWebApp
+    public sealed class PageHome : Page<RenderContextControl>
     {
         /// <summary>
         /// Constructor
@@ -35,11 +37,9 @@ namespace HelloWorld.WebPage
         /// Processing
         /// </summary>
         /// <param name="context">The context for rendering the page</param>
-        public override void Process(RenderContextWebApp context)
+        public override void Process(RenderContextControl context)
         {
-            base.Process(context);
-
-            context.VisualTree.Content.Primary.Add(new ControlText() { Text = InternationalizationManager.I18N(context, "Hello World!") });
+            context.VisualTree.Content.Add(new ControlText() { Text = InternationalizationManager.I18N("helloworld:homepage.text") });
         }
     }
 }
