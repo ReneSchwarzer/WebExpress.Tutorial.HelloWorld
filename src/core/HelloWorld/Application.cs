@@ -3,13 +3,12 @@ using WebExpress.WebAttribute;
 
 namespace HelloWorld
 {
-    [Id("HelloWorld")]
-    [Name("app.name")]
+    [Id("2884C459-0E73-42C0-A3BB-F9E4D8CCBA00")]
+    [Name("helloworld:app.name")]
     [Description("helloworld:app.description")]
     [Icon("/assets/img/helloworld.svg")]
     [AssetPath("/")]
-    [ContextPath("/HelloWorld")]
-    [Option("webexpress.webapp.*")]
+    [ContextPath("/helloworld")]
     public sealed class Application : IApplication
     {
         /// <summary>

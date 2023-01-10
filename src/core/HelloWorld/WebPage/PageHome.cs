@@ -1,18 +1,17 @@
 ﻿using WebExpress.Internationalization;
 using WebExpress.UI.WebControl;
 using WebExpress.UI.WebPage;
-using WebExpress.WebApp.WebPage;
 using WebExpress.WebAttribute;
 using WebExpress.WebPage;
 using WebExpress.WebResource;
 
 namespace HelloWorld.WebPage
 {
-    [Id("Log")]
+    [Id("6D270CFE-EDB1-46BF-9014-6DD87BB942A8")]
     [Title("helloworld:homepage.label")]
     [Segment("", "helloworld:homepage.label")]
     [Path("")]
-    [Module("HelloWorld")]
+    [Module("89AE354B-A640-4BDA-AD77-6F23DB811277")]
     [Context("general")]
     [Context("homepage")]
     public sealed class PageHome : Page<RenderContextControl>

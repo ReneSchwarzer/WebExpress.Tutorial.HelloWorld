@@ -3,7 +3,7 @@ using WebExpress.WebPlugin;
 
 namespace HelloWorld
 {
-    [Id("HelloWorld")]
+    [Id("54285621-C031-4E82-AE32-FF5E5974AED9")]
     [Name("helloworld:plugin.name")]
     [Description("helloworld:plugin.description")]
     [Icon("/assets/img/helloworld.svg")]

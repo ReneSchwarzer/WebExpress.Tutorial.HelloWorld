@@ -3,13 +3,13 @@ using WebExpress.WebModule;
 
 namespace HelloWorld
 {
-    [Id("HelloWorld")]
+    [Id("89AE354B-A640-4BDA-AD77-6F23DB811277")]
     [Name("helloworld:module.name")]
     [Description("helloworld:module.description")]
     [Icon("/assets/img/Logo.png")]
     [AssetPath("/")]
     [ContextPath("/")]
-    [Application("HelloWorld")]
+    [Application("2884C459-0E73-42C0-A3BB-F9E4D8CCBA00")]
     public sealed class Module : IModule
     {
         /// <summary>
