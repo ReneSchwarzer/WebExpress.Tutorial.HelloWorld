@@ -4,8 +4,8 @@ using WebExpress.WebPlugin;
 namespace HelloWorld
 {
     [Id("54285621-C031-4E82-AE32-FF5E5974AED9")]
-    [Name("helloworld:plugin.name")]
-    [Description("helloworld:plugin.description")]
+    [Name("54285621-C031-4E82-AE32-FF5E5974AED9:plugin.name")]
+    [Description("54285621-C031-4E82-AE32-FF5E5974AED9:plugin.description")]
     [Icon("/assets/img/helloworld.svg")]
     public sealed class Plugin : IPlugin
     {
