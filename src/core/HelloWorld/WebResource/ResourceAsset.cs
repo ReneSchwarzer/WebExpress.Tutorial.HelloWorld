@@ -9,7 +9,7 @@ namespace HelloWorld.WebResource
     [Id("Asset")]
     [Title("Assets")]
     [Segment("assets", "")]
-    [Path("/")]
+    [ContextPath("/")]
     [IncludeSubPaths(true)]
     [Module("89AE354B-A640-4BDA-AD77-6F23DB811277")]
     public sealed class ResourceAsset : WebExpress.WebResource.ResourceAsset

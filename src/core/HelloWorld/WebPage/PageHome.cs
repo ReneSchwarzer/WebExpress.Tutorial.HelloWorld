@@ -12,7 +12,7 @@ namespace HelloWorld.WebPage
     [Id("6D270CFE-EDB1-46BF-9014-6DD87BB942A8")]
     [Title("54285621-C031-4E82-AE32-FF5E5974AED9:homepage.label")]
     [Segment("", "54285621-C031-4E82-AE32-FF5E5974AED9:homepage.label")]
-    [Path("")]
+    [ContextPath("")]
     [Module("89AE354B-A640-4BDA-AD77-6F23DB811277")]
     [Context("general")]
     [Context("homepage")]
