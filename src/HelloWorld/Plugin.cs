@@ -3,10 +3,10 @@ using WebExpress.WebPlugin;
 
 namespace HelloWorld
 {
-    [Id("54285621-C031-4E82-AE32-FF5E5974AED9")]
-    [Name("54285621-C031-4E82-AE32-FF5E5974AED9:plugin.name")]
-    [Description("54285621-C031-4E82-AE32-FF5E5974AED9:plugin.description")]
-    [Icon("/assets/img/helloworld.svg")]
+    [WebExId("HelloWorld")]
+    [WebExName("HelloWorld:plugin.name")]
+    [WebExDescription("HelloWorld:plugin.description")]
+    [WebExIcon("/assets/img/helloworld.svg")]
     public sealed class Plugin : IPlugin
     {
         /// <summary>

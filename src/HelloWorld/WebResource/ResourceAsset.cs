@@ -6,12 +6,11 @@ namespace HelloWorld.WebResource
     /// <summary>
     /// Delivery of a resource embedded in the assembly.
     /// </summary>
-    [Id("Asset")]
-    [Title("Assets")]
-    [Segment("assets", "")]
-    [ContextPath("/")]
-    [IncludeSubPaths(true)]
-    [Module("89AE354B-A640-4BDA-AD77-6F23DB811277")]
+    [WebExTitle("Assets")]
+    [WebExSegment("assets", "")]
+    [WebExContextPath(null)]
+    [WebExIncludeSubPaths(true)]
+    [WebExModule(typeof(Module))]
     public sealed class ResourceAsset : WebExpress.WebResource.ResourceAsset
     {
         /// <summary>
