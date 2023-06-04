@@ -10,7 +10,7 @@ namespace HelloWorld.WebResource
     [WebExSegment("assets", "")]
     [WebExContextPath(null)]
     [WebExIncludeSubPaths(true)]
-    [WebExModule(typeof(Module))]
+    [WebExModule<Module>]
     public sealed class ResourceAsset : WebExpress.WebResource.ResourceAsset
     {
         /// <summary>

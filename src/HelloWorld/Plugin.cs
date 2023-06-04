@@ -3,7 +3,6 @@ using WebExpress.WebPlugin;
 
 namespace HelloWorld
 {
-    [WebExId("HelloWorld")]
     [WebExName("HelloWorld:plugin.name")]
     [WebExDescription("HelloWorld:plugin.description")]
     [WebExIcon("/assets/img/helloworld.svg")]

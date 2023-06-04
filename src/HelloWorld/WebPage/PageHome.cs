@@ -5,16 +5,15 @@ using WebExpress.UI.WebPage;
 using WebExpress.WebAttribute;
 using WebExpress.WebPage;
 using WebExpress.WebResource;
+using WebExpress.WebScope;
 
 namespace HelloWorld.WebPage
 {
     [WebExTitle("HelloWorld:homepage.label")]
     [WebExSegment(null, "HelloWorld:homepage.label")]
     [WebExContextPath(null)]
-    [WebExModule(typeof(Module))]
-    [WebExContext("general")]
-    [WebExContext("homepage")]
-    public sealed class PageHome : Page<RenderContextControl>
+    [WebExModule<Module>]
+    public sealed class PageHome : Page<RenderContextControl>, IScope
     {
         /// <summary>
         /// Constructor

@@ -8,7 +8,7 @@ namespace HelloWorld
     [WebExIcon("/assets/img/helloworld.svg")]
     [WebExAssetPath("/")]
     [WebExContextPath("/")]
-    [WebExApplication(typeof(Application))]
+    [WebExApplication<Application>]
     public sealed class Module : IModule
     {
         /// <summary>
