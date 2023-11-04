@@ -3,9 +3,9 @@ using WebExpress.WebPlugin;
 
 namespace HelloWorld
 {
-    [WebExName("HelloWorld:plugin.name")]
-    [WebExDescription("HelloWorld:plugin.description")]
-    [WebExIcon("/assets/img/helloworld.svg")]
+    [Name("HelloWorld:plugin.name")]
+    [Description("HelloWorld:plugin.description")]
+    [Icon("/assets/img/helloworld.svg")]
     public sealed class Plugin : IPlugin
     {
         /// <summary>

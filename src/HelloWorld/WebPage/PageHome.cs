@@ -1,18 +1,18 @@
-﻿using WebExpress.Html;
-using WebExpress.Internationalization;
-using WebExpress.UI.WebControl;
-using WebExpress.UI.WebPage;
+﻿using WebExpress.Internationalization;
 using WebExpress.WebAttribute;
+using WebExpress.WebHtml;
 using WebExpress.WebPage;
 using WebExpress.WebResource;
 using WebExpress.WebScope;
+using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebPage;
 
 namespace HelloWorld.WebPage
 {
-    [WebExTitle("HelloWorld:homepage.label")]
-    [WebExSegment(null, "HelloWorld:homepage.label")]
-    [WebExContextPath(null)]
-    [WebExModule<Module>]
+    [Title("HelloWorld:homepage.label")]
+    [Segment(null, "HelloWorld:homepage.label")]
+    [ContextPath(null)]
+    [Module<Module>]
     public sealed class PageHome : Page<RenderContextControl>, IScope
     {
         /// <summary>

@@ -3,12 +3,12 @@ using WebExpress.WebModule;
 
 namespace HelloWorld
 {
-    [WebExName("HelloWorld:module.name")]
-    [WebExDescription("HelloWorld:module.description")]
-    [WebExIcon("/assets/img/helloworld.svg")]
-    [WebExAssetPath("/")]
-    [WebExContextPath("/")]
-    [WebExApplication<Application>]
+    [Name("HelloWorld:module.name")]
+    [Description("HelloWorld:module.description")]
+    [Icon("/assets/img/helloworld.svg")]
+    [AssetPath("/")]
+    [ContextPath("/")]
+    [Application<Application>]
     public sealed class Module : IModule
     {
         /// <summary>
