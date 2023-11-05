@@ -6,6 +6,7 @@ namespace HelloWorld
     [Name("HelloWorld:plugin.name")]
     [Description("HelloWorld:plugin.description")]
     [Icon("/assets/img/helloworld.svg")]
+    [Dependency("webexpress.webui")]
     public sealed class Plugin : IPlugin
     {
         /// <summary>
