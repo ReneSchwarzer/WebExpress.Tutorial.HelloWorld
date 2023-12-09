@@ -1,5 +1,5 @@
-﻿using WebExpress.WebAttribute;
-using WebExpress.WebResource;
+﻿using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebResource;
 
 namespace HelloWorld.WebResource
 {
@@ -11,7 +11,7 @@ namespace HelloWorld.WebResource
     [ContextPath(null)]
     [IncludeSubPaths(true)]
     [Module<Module>]
-    public sealed class ResourceAsset : WebExpress.WebResource.ResourceAsset
+    public sealed class ResourceAsset : WebExpress.WebCore.WebResource.ResourceAsset
     {
         /// <summary>
         /// Constructor

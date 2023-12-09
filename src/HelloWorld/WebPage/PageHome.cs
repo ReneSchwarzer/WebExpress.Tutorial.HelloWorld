@@ -1,9 +1,9 @@
-﻿using WebExpress.Internationalization;
-using WebExpress.WebAttribute;
-using WebExpress.WebHtml;
-using WebExpress.WebPage;
-using WebExpress.WebResource;
-using WebExpress.WebScope;
+﻿using WebExpress.WebCore.Internationalization;
+using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebHtml;
+using WebExpress.WebCore.WebPage;
+using WebExpress.WebCore.WebResource;
+using WebExpress.WebCore.WebScope;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebPage;
 

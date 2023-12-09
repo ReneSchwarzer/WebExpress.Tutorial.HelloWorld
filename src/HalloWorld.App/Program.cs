@@ -6,7 +6,7 @@ namespace HalloWorld.App
     {
         static void Main(string[] args)
         {
-            var app = new WebExpress.WebEx()
+            var app = new WebExpress.WebCore.WebEx()
             {
                 Name = Assembly.GetExecutingAssembly().GetName().Name
             };
