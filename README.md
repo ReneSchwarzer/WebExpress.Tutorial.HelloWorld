@@ -60,7 +60,7 @@ After fulfilling these prerequisites, you can proceed with the tutorial.
   dotnet new classlib -n HelloWorld -f net8.0
 
   # add the projects to the solution
-  dotnet sln add ./HelloWorld.Add/HelloWorld.App.csproj
+  dotnet sln add ./HelloWorld.App/HelloWorld.App.csproj
   dotnet sln add ./HelloWorld/HelloWorld.csproj
   ```
 
@@ -334,7 +334,7 @@ Now you have created a new solution and are ready to proceed with the next steps
   dotnet run --project ../../../HelloWorld.App.csproj
   ```
 
-- After compiling, there should be a file with the `.wxp` extension in the `pkg/Release` directory. This file do you need in WebExpress.
+- After compiling, there should be a file with the `.wxp` extension in the `pkg/Release` directory. This file do you need in `WebExpress`.
 
 Good luck!
     
