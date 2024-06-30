@@ -20,11 +20,16 @@ The `WebExpress` family includes the following projects:
 
 `WebExpress` is part of the `WebExpress` family. The project provides a web server for `WebExpress` applications.
 
+To get started with `WebExpress`, use the following links.
+
+- [installation guide](https://github.com/ReneSchwarzer/WebExpress/blob/main/doc/installation_guide.md) 
+- [development guide](https://github.com/ReneSchwarzer/WebExpress/blob/main/doc/development_guide.md)
+
 # Tutorial
 Tutorial of a simple Hello World application for WebExpress. Two projects are created for the tutorial. The `HelloWorld` project contains the functionality and all resources to run as a WebExpress application. The project `HelloWorld.App` is a helper project that is needed for debugging, testing and packaging creation.
 
 ## Prerequisites
-- Install .NET 8.0. You can download and install .NET 8.0 from the official .NET website. Follow the instructions on the website to complete the installation (see also [installation guide](https://github.com/ReneSchwarzer/WebExpress/blob/main/doc/installation_guide.md)).
+- Install .NET 8.0. You can download and install .NET 8.0 from the official .NET website. Follow the instructions on the website to complete the installation.
 - Verify the installation. Open the command line or terminal and run the following command:
   ```bash
   dotnet --version
@@ -75,12 +80,12 @@ Now you have created a new solution and are ready to proceed with the next steps
   </PropertyGroup>
 
   <ItemGroup>
-      <PackageReference Include="WebExpress.WebCore" Version="0.0.7-alpha">
+      <PackageReference Include="WebExpress.WebCore" Version="0.0.8-alpha">
           <Private>false</Private>
           <ExcludeAssets>runtime</ExcludeAssets>
       </PackageReference>
 
-      <PackageReference Include="WebExpress.WebUI" Version="0.0.7-alpha">
+      <PackageReference Include="WebExpress.WebUI" Version="0.0.8-alpha">
           <Private>false</Private>
           <ExcludeAssets>runtime</ExcludeAssets>
       </PackageReference>
@@ -89,8 +94,8 @@ Now you have created a new solution and are ready to proceed with the next steps
 - Add the necessary dependencies in the `HelloWorld.App` project file.
   ```xml
   <ItemGroup>
-      <PackageReference Include="WebExpress.WebCore" Version="0.0.7-alpha" />
-      <PackageReference Include="WebExpress.WebUI" Version="0.0.7-alpha" />
+      <PackageReference Include="WebExpress.WebCore" Version="0.0.8-alpha" />
+      <PackageReference Include="WebExpress.WebUI" Version="0.0.8-alpha" />
   </ItemGroup>
 
   <ItemGroup>
@@ -105,7 +110,7 @@ Now you have created a new solution and are ready to proceed with the next steps
   <?xml version="1.0" encoding="utf-8"?>
   <package>
       <id>WebExpress.Tutorial.HelloWorld</id>
-      <version>0.0.7-alpha</version>
+      <version>0.0.8-alpha</version>
       <title>HelloWorld</title>
       <authors>rene_schwarzer@hotmail.de</authors>
       <license>MIT</license>
