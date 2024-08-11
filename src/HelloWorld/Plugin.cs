@@ -10,7 +10,7 @@ namespace HelloWorld
     public sealed class Plugin : IPlugin
     {
         /// <summary>
-        /// Constructor
+        /// Initializes a new instance of the class.
         /// </summary>
         public Plugin()
         {

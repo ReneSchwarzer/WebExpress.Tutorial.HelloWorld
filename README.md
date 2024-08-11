@@ -99,7 +99,7 @@ Now you have created a new solution and are ready to proceed with the next steps
   </ItemGroup>
 
   <ItemGroup>
-      <ProjectReference Include="..\HelloWorld\HelloWorld.csproj" />
+      <ProjectReference Include="../HelloWorld/HelloWorld.csproj" />
   </ItemGroup>
   ```
 - Adjust the project file to your requirements.
@@ -126,7 +126,7 @@ Now you have created a new solution and are ready to proceed with the next steps
 - Add the spec file in the `HelloWorld.App` project file.
   ```
   <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Configuration)' == 'Release'">
-      <Exec Command="$(SolutionDir)$(AssemblyName)/bin/$(Configuration)/$(TargetFramework)/$(AssemblyName).exe -s $(SolutionDir)/WebExpress.Tutorial.HelloWorld.spec -c $(Configuration) -t $(TargetFramework) -o $(SolutionDir)/pkg/$(Configuration)" />
+      <Exec Command="$(SolutionDir)$(AssemblyName)/bin/$(Configuration)/$(TargetFramework)/$(AssemblyName).exe -s $(SolutionDir)/$(SolutionName).spec -c $(Configuration) -t $(TargetFramework) -o $(SolutionDir)/pkg/$(Configuration)" />
   </Target>
   ```
 
@@ -152,7 +152,7 @@ Now you have created a new solution and are ready to proceed with the next steps
   ```
 - Adjust the class to your requirements.
 
-## Create a WebApplication
+## Create a WebExpress application
 - Create a new class `Application` in the `HelloWorld` project that implements the `IApplication` interface.
   ```csharp
   using WebExpress.WebCore.WebApplication;
@@ -175,7 +175,7 @@ Now you have created a new solution and are ready to proceed with the next steps
   ```
 - Adjust the class to your requirements.
 
-## Create a module
+## Create a WebExpress module
 - Create a new class `Module` in the `HelloWorld` project that implements the `IModule` interface.
   ```csharp
   using WebExpress.WebCore.WebAttribute;
@@ -200,7 +200,7 @@ Now you have created a new solution and are ready to proceed with the next steps
 - Adjust the class to your requirements.
 
 ## Create a homepage
-- Create a new view for the homepage in the `HelloWorld` project.
+- Create a new view for the home page in the `HelloWorld` project.
   ```csharp
   using WebExpress.WebCore.Internationalization;
   using WebExpress.WebCore.WebAttribute;
@@ -219,11 +219,6 @@ Now you have created a new solution and are ready to proceed with the next steps
       [Module<Module>]
       public sealed class HomePage : Page<RenderContextControl>, IScope
       {
-          public override void Initialization(IResourceContext context)
-          {
-              base.Initialization(context);
-          }
-
           public override void Process(RenderContextControl context)
           {
               context.VisualTree.Favicons.Add(new Favicon(context.Page.ApplicationContext.ContextPath.Append("/assets/img/favicon.png")));
@@ -298,7 +293,7 @@ Now you have created a new solution and are ready to proceed with the next steps
   ```xml
   <?xml version="1.0" encoding="utf-8" ?>
   <config version = "1">
-      <log modus="Off" debug="false" path="/var/log/" encoding="utf-8" filename="inventory.log" timepattern="dd.MM.yyyy HH:mm:ss" />
+      <log modus="Off" debug="false" path="/var/log/" encoding="utf-8" filename="webexpress.log" timepattern="dd.MM.yyyy HH:mm:ss" />
       <uri>http://localhost/</uri>
       <endpoint uri="http://localhost/"/>
       <limit>
@@ -315,7 +310,7 @@ Now you have created a new solution and are ready to proceed with the next steps
 - Include the configuration file in the `HelloWorld.App` project file.
   ```
   <ItemGroup>
-      <None Update="config\webexpress.config.xml">
+      <None Update="config/webexpress.config.xml">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
   </ItemGroup>
@@ -330,11 +325,14 @@ Now you have created a new solution and are ready to proceed with the next steps
 
 - Run the solution by starting the `HelloWorld.App` project.
   ```bash
-  cd HelloWorld.App\bin\bin\Release\net8.0
+  cd HelloWorld.App\bin\Release\net8.0
   dotnet run --project ../../../HelloWorld.App.csproj
   ```
 
 - After compiling, there should be a file with the `.wxp` extension in the `pkg/Release` directory. This file do you need in `WebExpress`.
+
+## Try the application
+- Check the result by calling up the following URL in the browser: http://localhost/helloworld
 
 Good luck!
     

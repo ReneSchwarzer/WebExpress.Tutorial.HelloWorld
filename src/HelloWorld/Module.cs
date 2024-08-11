@@ -12,7 +12,7 @@ namespace HelloWorld
     public sealed class Module : IModule
     {
         /// <summary>
-        /// Constructor
+        /// Initializes a new instance of the class.
         /// </summary>
         public Module()
         {

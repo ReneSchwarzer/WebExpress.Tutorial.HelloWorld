@@ -14,7 +14,7 @@ namespace HelloWorld.WebResource
     public sealed class ResourceAsset : WebExpress.WebCore.WebResource.ResourceAsset
     {
         /// <summary>
-        /// Constructor
+        /// Initializes a new instance of the class.
         /// </summary>
         public ResourceAsset()
         {

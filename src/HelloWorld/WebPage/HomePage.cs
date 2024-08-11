@@ -13,12 +13,12 @@ namespace HelloWorld.WebPage
     [Segment(null, "HelloWorld:homepage.label")]
     [ContextPath(null)]
     [Module<Module>]
-    public sealed class PageHome : Page<RenderContextControl>, IScope
+    public sealed class HomePage : Page<RenderContextControl>, IScope
     {
         /// <summary>
-        /// Constructor
+        /// Initializes a new instance of the class.
         /// </summary>
-        public PageHome()
+        public HomePage()
         {
         }
 
@@ -37,7 +37,7 @@ namespace HelloWorld.WebPage
         /// <param name="context">The context for rendering the page</param>
         public override void Process(RenderContextControl context)
         {
-            context.VisualTree.Favicons.Add(new Favicon(context.Page.ApplicationContext.ContextPath.Append("/assets/img/favicon.png")));
+            context.VisualTree.Favicons.Add(new Favicon(context.ApplicationContext.ContextPath.Append("/assets/img/favicon.png")));
             context.VisualTree.Content.Add(new ControlText() { Text = InternationalizationManager.I18N("HelloWorld:homepage.text") });
         }
     }

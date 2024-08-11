@@ -25,7 +25,7 @@
 	</ItemGroup>
 
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Configuration)' == 'Release'">
-		<Exec Command="$(SolutionDir)$(AssemblyName)\bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).exe -s $(SolutionDir)..\WebExpress.Tutorial.HelloWorld.spec -c $(Configuration) -t $(TargetFramework) -o $(SolutionDir)..\pkg\$(Configuration)" />
+		<Exec Command="$(SolutionDir)$(AssemblyName)\bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).exe -s $(SolutionDir)../$(SolutionName).spec -c $(Configuration) -t $(TargetFramework) -o $(SolutionDir)..\pkg\$(Configuration)" />
 	</Target>
 
 </Project>

@@ -11,7 +11,7 @@ namespace HelloWorld
     public sealed class Application : IApplication
     {
         /// <summary>
-        /// Constructor
+        /// Initializes a new instance of the class.
         /// </summary>
         public Application()
         {
