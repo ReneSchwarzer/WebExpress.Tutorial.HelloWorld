@@ -296,7 +296,7 @@ Now you have created a new solution and are ready to proceed with the next steps
 - After compiling, there should be a file with the `.wxp` extension in the `pkg/Release` directory. This file do you need in `WebExpress`.
 
 ## Try the application
-- Check the result by calling up the following URL in the browser: http://localhost/helloworld
+- Check the result by calling up the following URL in the browser: [http://localhost/helloworld](http://localhost/helloworld)
 
 Good luck!
     
