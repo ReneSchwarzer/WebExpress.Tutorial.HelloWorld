@@ -29,12 +29,12 @@ To get started with `WebExpress`, use the following links.
 Tutorial of a simple Hello World application for WebExpress. Two projects are created for the tutorial. The `HelloWorld` project contains the functionality and all resources to run as a WebExpress application. The project `HelloWorld.App` is a helper project that is needed for debugging, testing and packaging creation.
 
 ## Prerequisites
-- Install .NET 8.0. You can download and install .NET 8.0 from the official .NET website. Follow the instructions on the website to complete the installation.
+- Install .NET 9.0. You can download and install .NET 9.0 from the official .NET website. Follow the instructions on the website to complete the installation.
 - Verify the installation. Open the command line or terminal and run the following command:
   ```bash
   dotnet --version
   ```
-  This command outputs the installed .NET version. Make sure the outputted version matches the version you installed (in this case 8.0).
+  This command outputs the installed .NET version. Make sure the outputted version matches the version you installed (in this case 9.0).
 
 After fulfilling these prerequisites, you can proceed with the tutorial.
 
@@ -54,17 +54,17 @@ After fulfilling these prerequisites, you can proceed with the tutorial.
   dotnet new sln -n WebExpress.Tutorial.HelloWorld
 
   # create a new console application
-  dotnet new console -n HelloWorld.App -f net8.0
+  dotnet new console -n HelloWorld.App -f net9.0
 
   # create a new class library
-  dotnet new classlib -n HelloWorld -f net8.0
+  dotnet new classlib -n HelloWorld -f net9.0
 
   # add the projects to the solution
   dotnet sln add ./HelloWorld.App/HelloWorld.App.csproj
   dotnet sln add ./HelloWorld/HelloWorld.csproj
   ```
 
-This command creates a new .NET solution named `WebExpress.Tutorial.HelloWorld` and uses .NET 8.0 as the framework.
+This command creates a new .NET solution named `WebExpress.Tutorial.HelloWorld` and uses .NET 9.0 as the framework.
 - Check the newly created solution. There should now be a new directory named `WebExpress.Tutorial.HelloWorld` in the current directory. You can view the contents of this directory with the command ls (Linux/Mac) or dir (Windows).
 - Open the solution in your preferred development environment.
   - If you are using Visual Studio Code, you can open the solution with the command `code .` in the solution directory.
@@ -84,18 +84,12 @@ Now you have created a new solution and are ready to proceed with the next steps
           <Private>false</Private>
           <ExcludeAssets>runtime</ExcludeAssets>
       </PackageReference>
-
-      <PackageReference Include="WebExpress.WebUI" Version="0.0.8-alpha">
-          <Private>false</Private>
-          <ExcludeAssets>runtime</ExcludeAssets>
-      </PackageReference>
   </ItemGroup>
   ```
 - Add the necessary dependencies in the `HelloWorld.App` project file.
   ```xml
   <ItemGroup>
       <PackageReference Include="WebExpress.WebCore" Version="0.0.8-alpha" />
-      <PackageReference Include="WebExpress.WebUI" Version="0.0.8-alpha" />
   </ItemGroup>
 
   <ItemGroup>
@@ -141,10 +135,9 @@ Now you have created a new solution and are ready to proceed with the next steps
       [Name("HelloWorld:plugin.name")]
       [Description("HelloWorld:plugin.description")]
       [Icon("/assets/img/helloworld.svg")]
-      [Dependency("webexpress.webui")]
+      [Application<Application>()]
       public sealed class Plugin : IPlugin
       {
-          public void Initialization(IPluginContext context) {}
           public void Run() {}
           public void Dispose() {}
       }
@@ -167,34 +160,9 @@ Now you have created a new solution and are ready to proceed with the next steps
       [ContextPath("/helloworld")]
       public sealed class Application : IApplication
       {
-          public void Initialization(IApplicationContext context) {}
           public void Run() {}
           public void Dispose() {}
      }
-  }
-  ```
-- Adjust the class to your requirements.
-
-## Create a WebExpress module
-- Create a new class `Module` in the `HelloWorld` project that implements the `IModule` interface.
-  ```csharp
-  using WebExpress.WebCore.WebAttribute;
-  using WebExpress.WebCore.WebModule;
-
-  namespace HelloWorld
-  {
-      [Name("HelloWorld:module.name")]
-      [Description("HelloWorld:module.description")]
-      [Icon("/assets/img/helloworld.svg")]
-      [AssetPath("/")]
-      [ContextPath("/")]
-      [Application<Application>]
-      public sealed class Module : IModule
-      {
-          public void Initialization(IModuleContext context) {}
-          public void Run() {}
-          public void Dispose() {}
-      }
   }
   ```
 - Adjust the class to your requirements.
@@ -206,24 +174,23 @@ Now you have created a new solution and are ready to proceed with the next steps
   using WebExpress.WebCore.WebAttribute;
   using WebExpress.WebCore.WebHtml;
   using WebExpress.WebCore.WebPage;
-  using WebExpress.WebCore.WebResource;
-  using WebExpress.WebCore.WebScope;
-  using WebExpress.WebUI.WebControl;
-  using WebExpress.WebUI.WebPage;
 
   namespace HelloWorld.WebPage
   {
       [Title("HelloWorld:homepage.label")]
       [Segment(null, "HelloWorld:homepage.label")]
       [ContextPath(null)]
-      [Module<Module>]
-      public sealed class HomePage : Page<RenderContextControl>, IScope
+      public sealed class HomePage : IPage<RenderContext>
       {
-          public override void Process(RenderContextControl context)
+          public void Redirecting(string uri) {}
+  
+          public void Process(IRenderContext renderContext)
           {
-              context.VisualTree.Favicons.Add(new Favicon(context.Page.ApplicationContext.ContextPath.Append("/assets/img/favicon.png")));
-              context.VisualTree.Content.Add(new ControlText() { Text = InternationalizationManager.I18N("HelloWorld:homepage.text") });
+              renderContext.VisualTree.Favicons.Add(new Favicon(renderContext?.PageContext?.ApplicationContext?.ContextPath.Append("/assets/img/favicon.png")));
+              renderContext.VisualTree.Content = new HtmlText(I18N.Translate("HelloWorld:homepage.text"));
           }
+
+          public void Dispose() {}
       }
   }
   ```
@@ -263,9 +230,6 @@ Now you have created a new solution and are ready to proceed with the next steps
   app.license.label=License MIT 
   app.license.uri=https://github.com/ReneSchwarzer/WebExpress.Tutorial.HelloWorld/blob/main/LICENSE
   app.version.label={0} version {1} created with {2} version {3}.
-
-  module.name=HelloWorld
-  module.description=Module of the HelloWorld application.
 
   homepage.label=Home page
   homepage.text=Hello world!
@@ -325,7 +289,7 @@ Now you have created a new solution and are ready to proceed with the next steps
 
 - Run the solution by starting the `HelloWorld.App` project.
   ```bash
-  cd HelloWorld.App\bin\Release\net8.0
+  cd HelloWorld.App\bin\Release\net9.0
   dotnet run --project ../../../HelloWorld.App.csproj
   ```
 

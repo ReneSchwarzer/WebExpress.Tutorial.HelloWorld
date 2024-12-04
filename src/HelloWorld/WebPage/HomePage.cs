@@ -2,43 +2,47 @@
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebHtml;
 using WebExpress.WebCore.WebPage;
-using WebExpress.WebCore.WebResource;
 using WebExpress.WebCore.WebScope;
-using WebExpress.WebUI.WebControl;
-using WebExpress.WebUI.WebPage;
 
 namespace HelloWorld.WebPage
 {
     [Title("HelloWorld:homepage.label")]
     [Segment(null, "HelloWorld:homepage.label")]
     [ContextPath(null)]
-    [Module<Module>]
-    public sealed class HomePage : Page<RenderContextControl>, IScope
+    public sealed class HomePage : IPage<RenderContext>, IScope
     {
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
-        public HomePage()
+        /// <param name="pageContext">The page context.</param>
+        public HomePage(IPageContext pageContext)
         {
         }
 
         /// <summary>
-        /// Initialization
+        /// Redirects to the specified URI.
         /// </summary>
-        /// <param name="context">The context</param>
-        public override void Initialization(IResourceContext context)
+        /// <param name="uri">The URI to redirect to.</param>
+        public void Redirecting(string uri)
         {
-            base.Initialization(context);
+            throw new System.NotImplementedException();
         }
 
         /// <summary>
-        /// Processing
+        /// Processing of the page.
         /// </summary>
-        /// <param name="context">The context for rendering the page</param>
-        public override void Process(RenderContextControl context)
+        /// <param name="renderContext">The context for rendering the page.</param>
+        public void Process(IRenderContext renderContext)
         {
-            context.VisualTree.Favicons.Add(new Favicon(context.ApplicationContext.ContextPath.Append("/assets/img/favicon.png")));
-            context.VisualTree.Content.Add(new ControlText() { Text = InternationalizationManager.I18N("HelloWorld:homepage.text") });
+            renderContext.VisualTree.Favicons.Add(new Favicon(renderContext?.PageContext?.ApplicationContext?.ContextPath.Append("/assets/img/favicon.png")));
+            renderContext.VisualTree.Content = new HtmlText(I18N.Translate("HelloWorld:homepage.text"));
+        }
+
+        /// <summary>
+        /// Release unmanaged resources that have been reserved during use.
+        /// </summary>
+        public void Dispose()
+        {
         }
     }
 }

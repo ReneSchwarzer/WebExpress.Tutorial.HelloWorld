@@ -3,24 +3,20 @@ using WebExpress.WebCore.WebPlugin;
 
 namespace HelloWorld
 {
+    /// <summary>
+    /// Represents a plugin that implements the IPlugin interface.
+    /// </summary>
     [Name("HelloWorld:plugin.name")]
     [Description("HelloWorld:plugin.description")]
     [Icon("/assets/img/helloworld.svg")]
-    [Dependency("webexpress.webui")]
+    [Application<Application>()]
     public sealed class Plugin : IPlugin
     {
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
-        public Plugin()
-        {
-        }
-
-        /// <summary>
-        /// Initialization of the plugin. Here, for example, managed resources can be loaded. 
-        /// </summary>
         /// <param name="context">The context that applies to the execution of the plugin</param>
-        public void Initialization(IPluginContext context)
+        public Plugin(IPluginContext context)
         {
         }
 
