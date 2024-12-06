@@ -40,10 +40,10 @@ After fulfilling these prerequisites, you can proceed with the tutorial.
 
 ## Create a new solution
 - Open the command line or terminal.
-    - On Windows, you can open the command line by typing cmd into the search box of the Start menu and pressing Enter.
-    - On MacOS or Linux, you can open the terminal by typing terminal into the Spotlight search and pressing Enter.
+    - On Windows, you can open the command line by typing `cmd` into the search box of the Start menu and pressing Enter.
+    - On MacOS or Linux, you can open the terminal by typing `terminal` into the Spotlight search and pressing Enter.
 - Navigate to the desired directory.
-- Use the command cd `path/to/directory` to navigate to the desired directory.
+- Use the command `cd path/to/directory` to navigate to the desired directory.
 - Create a new solution. Enter the following command and press Enter:
   ```bash
   # create a new folder for your solution
@@ -65,14 +65,14 @@ After fulfilling these prerequisites, you can proceed with the tutorial.
   ```
 
 This command creates a new .NET solution named `WebExpress.Tutorial.HelloWorld` and uses .NET 9.0 as the framework.
-- Check the newly created solution. There should now be a new directory named `WebExpress.Tutorial.HelloWorld` in the current directory. You can view the contents of this directory with the command ls (Linux/Mac) or dir (Windows).
+- Check the newly created solution. There should now be a new directory named `WebExpress.Tutorial.HelloWorld` in the current directory. You can view the contents of this directory with the command `ls` (Linux/Mac) or `dir` (Windows).
 - Open the solution in your preferred development environment.
   - If you are using Visual Studio Code, you can open the solution with the command `code .` in the solution directory.
 
 Now you have created a new solution and are ready to proceed with the next steps in your tutorial.
 
 ## Customize the project
-- Add the necessary dependencies in the `HelloWorld` project file.
+- Add the necessary dependencies in the `HelloWorld.csproj` project file.
   ```xml
   <PropertyGroup>
       ...
@@ -86,7 +86,7 @@ Now you have created a new solution and are ready to proceed with the next steps
       </PackageReference>
   </ItemGroup>
   ```
-- Add the necessary dependencies in the `HelloWorld.App` project file.
+- Add the necessary dependencies in the `HelloWorld.App.csproj` project file.
   ```xml
   <ItemGroup>
       <PackageReference Include="WebExpress.WebCore" Version="0.0.8-alpha" />
@@ -117,7 +117,7 @@ Now you have created a new solution and are ready to proceed with the next steps
   </package>
   ```
 - Adjust the spec file to your requirements.
-- Add the spec file in the `HelloWorld.App` project file.
+- Add the spec file in the `HelloWorld.App.csproj` project file.
   ```
   <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Configuration)' == 'Release'">
       <Exec Command="$(SolutionDir)$(AssemblyName)/bin/$(Configuration)/$(TargetFramework)/$(AssemblyName).exe -s $(SolutionDir)/$(SolutionName).spec -c $(Configuration) -t $(TargetFramework) -o $(SolutionDir)/pkg/$(Configuration)" />
@@ -219,7 +219,7 @@ Now you have created a new solution and are ready to proceed with the next steps
   ```
 
 ## Internationalization
-- Add support for multiple languages. This can be achieved by using i18n files. Each resource file contains the translations for all strings in your application. Name your resource files according to the culture they represent. For example, the file for German translations should be called `de``. In the following, we use the english language.
+- Add support for multiple languages. This can be achieved by using i18n files. Each resource file contains the translations for all strings in your application. Name your resource files according to the culture they represent. For example, the file for German translations should be called `de`. In the following, we use the english language.
  ```
  plugin.name=HelloWorld
  plugin.description=
@@ -235,7 +235,7 @@ Now you have created a new solution and are ready to proceed with the next steps
   homepage.text=Hello world!
   ```
 
-  - Add the en file in the `HelloWorld` project file.
+  - Add the en file in the `HelloWorld.csproj` project file.
   ```xml
   <ItemGroup>
       <EmbeddedResource Include="Internationalization/en" />
@@ -244,7 +244,7 @@ Now you have created a new solution and are ready to proceed with the next steps
 
 ## Add the Assets
 - Add assets to the `HelloWorld` project. You can get the assets for this tutorial here: https://github.com/ReneSchwarzer/WebExpress.Tutorial.HelloWorld/tree/main/src/HelloWorld/Assets/img
-- Add the assets in the `HelloWorld` project file.
+- Add the assets in the `HelloWorld.csproj` project file.
   ```xml
   <ItemGroup>
       <EmbeddedResource Include="Assets/img/favicon.png" />
@@ -271,7 +271,7 @@ Now you have created a new solution and are ready to proceed with the next steps
       <contextpath></contextpath>
   </config>
   ```
-- Include the configuration file in the `HelloWorld.App` project file.
+- Include the configuration file in the `HelloWorld.App.csproj` project file.
   ```
   <ItemGroup>
       <None Update="config/webexpress.config.xml">
