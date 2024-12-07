@@ -182,8 +182,6 @@ Now you have created a new solution and are ready to proceed with the next steps
       [ContextPath(null)]
       public sealed class HomePage : IPage<RenderContext>
       {
-          public void Redirecting(string uri) {}
-  
           public void Process(IRenderContext renderContext)
           {
               renderContext.VisualTree.Favicons.Add(new Favicon(renderContext?.PageContext?.ApplicationContext?.ContextPath.Append("/assets/img/favicon.png")));
@@ -235,7 +233,7 @@ Now you have created a new solution and are ready to proceed with the next steps
   homepage.text=Hello world!
   ```
 
-  - Add the en file in the `HelloWorld.csproj` project file.
+  - Add the `en` file in the `HelloWorld.csproj` project file.
   ```xml
   <ItemGroup>
       <EmbeddedResource Include="Internationalization/en" />

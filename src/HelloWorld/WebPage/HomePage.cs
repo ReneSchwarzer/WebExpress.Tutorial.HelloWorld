@@ -20,15 +20,6 @@ namespace HelloWorld.WebPage
         }
 
         /// <summary>
-        /// Redirects to the specified URI.
-        /// </summary>
-        /// <param name="uri">The URI to redirect to.</param>
-        public void Redirecting(string uri)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        /// <summary>
         /// Processing of the page.
         /// </summary>
         /// <param name="renderContext">The context for rendering the page.</param>
