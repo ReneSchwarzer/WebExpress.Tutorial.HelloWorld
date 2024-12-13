@@ -8,8 +8,7 @@ namespace HelloWorld.WebPage
 {
     [Title("HelloWorld:homepage.label")]
     [Segment(null, "HelloWorld:homepage.label")]
-    [ContextPath(null)]
-    public sealed class HomePage : IPage<RenderContext>, IScope
+    public sealed class HomePage : IPage<VisualTree>, IScope
     {
         /// <summary>
         /// Initializes a new instance of the class.
@@ -23,10 +22,11 @@ namespace HelloWorld.WebPage
         /// Processing of the page.
         /// </summary>
         /// <param name="renderContext">The context for rendering the page.</param>
-        public void Process(IRenderContext renderContext)
+        /// <param name="visualTree">The visual tree to be rendered.</param>
+        public void Process(IRenderContext renderContext, VisualTree visualTree)
         {
-            renderContext.VisualTree.Favicons.Add(new Favicon(renderContext?.PageContext?.ApplicationContext?.ContextPath.Append("/assets/img/favicon.png")));
-            renderContext.VisualTree.Content = new HtmlText(I18N.Translate("HelloWorld:homepage.text"));
+            visualTree.Favicons.Add(new Favicon(renderContext?.PageContext?.ApplicationContext?.ContextPath.Append("/assets/img/favicon.png")));
+            visualTree.Content = new HtmlText(I18N.Translate("HelloWorld:homepage.text"));
         }
 
         /// <summary>

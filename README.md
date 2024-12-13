@@ -179,13 +179,12 @@ Now you have created a new solution and are ready to proceed with the next steps
   {
       [Title("HelloWorld:homepage.label")]
       [Segment(null, "HelloWorld:homepage.label")]
-      [ContextPath(null)]
-      public sealed class HomePage : IPage<RenderContext>
+      public sealed class HomePage : IPage<VisualTree>
       {
-          public void Process(IRenderContext renderContext)
+          public void Process(IRenderContext renderContext, VisualTree visualTree)
           {
-              renderContext.VisualTree.Favicons.Add(new Favicon(renderContext?.PageContext?.ApplicationContext?.ContextPath.Append("/assets/img/favicon.png")));
-              renderContext.VisualTree.Content = new HtmlText(I18N.Translate("HelloWorld:homepage.text"));
+              visualTree.Favicons.Add(new Favicon(renderContext?.PageContext?.ApplicationContext?.ContextPath.Append("/assets/img/favicon.png")));
+              visualTree.Content = new HtmlText(I18N.Translate("HelloWorld:homepage.text"));
           }
 
           public void Dispose() {}
