@@ -4,7 +4,7 @@ using WebExpress.WebCore.WebPlugin;
 namespace HelloWorld
 {
     /// <summary>
-    /// Represents a plugin that implements the IPlugin interface.
+    /// Represents a WebExpress plugin.
     /// </summary>
     [Name("HelloWorld:plugin.name")]
     [Description("HelloWorld:plugin.description")]
@@ -24,13 +24,6 @@ namespace HelloWorld
         /// Called when the plugin starts working. Run is called concurrently.
         /// </summary>
         public void Run()
-        {
-        }
-
-        /// <summary>
-        /// Release unmanaged resources that have been reserved during use.
-        /// </summary>
-        public void Dispose()
         {
         }
     }

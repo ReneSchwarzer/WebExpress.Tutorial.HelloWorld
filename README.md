@@ -139,7 +139,6 @@ Now you have created a new solution and are ready to proceed with the next steps
       public sealed class Plugin : IPlugin
       {
           public void Run() {}
-          public void Dispose() {}
       }
   }
   ```
@@ -161,7 +160,6 @@ Now you have created a new solution and are ready to proceed with the next steps
       public sealed class Application : IApplication
       {
           public void Run() {}
-          public void Dispose() {}
      }
   }
   ```
@@ -186,8 +184,6 @@ Now you have created a new solution and are ready to proceed with the next steps
               visualTree.Favicons.Add(new Favicon(renderContext?.PageContext?.ApplicationContext?.ContextPath.Append("/assets/img/favicon.png")));
               visualTree.Content = new HtmlText(I18N.Translate("HelloWorld:homepage.text"));
           }
-
-          public void Dispose() {}
       }
   }
   ```

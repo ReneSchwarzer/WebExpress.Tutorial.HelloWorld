@@ -6,6 +6,12 @@ using WebExpress.WebCore.WebScope;
 
 namespace HelloWorld.WebPage
 {
+    /// <summary>
+    /// Represents the home page of the HelloWorld application.
+    /// </summary>
+    /// <remarks>
+    /// This class is responsible for rendering the home page content.
+    /// </remarks>
     [Title("HelloWorld:homepage.label")]
     [Segment(null, "HelloWorld:homepage.label")]
     public sealed class HomePage : IPage<VisualTree>, IScope
@@ -27,13 +33,6 @@ namespace HelloWorld.WebPage
         {
             visualTree.Favicons.Add(new Favicon(renderContext?.PageContext?.ApplicationContext?.ContextPath.Append("/assets/img/favicon.png")));
             visualTree.Content = new HtmlText(I18N.Translate("HelloWorld:homepage.text"));
-        }
-
-        /// <summary>
-        /// Release unmanaged resources that have been reserved during use.
-        /// </summary>
-        public void Dispose()
-        {
         }
     }
 }

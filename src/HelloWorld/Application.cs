@@ -4,7 +4,7 @@ using WebExpress.WebCore.WebAttribute;
 namespace HelloWorld
 {
     /// <summary>
-    /// Represents the main application class that implements the IApplication interface.
+    /// Represents the main application class.
     /// </summary>
     [Name("HelloWorld:app.name")]
     [Description("HelloWorld:app.description")]
@@ -24,13 +24,6 @@ namespace HelloWorld
         /// Called when the application starts working. The call is concurrent. 
         /// </summary>
         public void Run()
-        {
-        }
-
-        /// <summary>
-        /// Release unmanaged resources that have been reserved during use.
-        /// </summary>
-        public void Dispose()
         {
         }
     }
