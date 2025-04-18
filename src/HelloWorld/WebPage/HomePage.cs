@@ -31,7 +31,7 @@ namespace HelloWorld.WebPage
         /// <param name="visualTree">The visual tree to be rendered.</param>
         public void Process(IRenderContext renderContext, VisualTree visualTree)
         {
-            visualTree.Favicons.Add(new Favicon(renderContext?.PageContext?.ApplicationContext?.ContextPath.Append("/assets/img/favicon.png")));
+            visualTree.Favicons.Add(new Favicon(renderContext?.PageContext?.ApplicationContext?.ContextPath.Concat("/assets/img/favicon.png").ToString()));
             visualTree.Content = new HtmlText(I18N.Translate("HelloWorld:homepage.text"));
         }
     }
